@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-import-globals",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "lib/index.js",
   "description": "Automatically import a whitelist of modules when they are used",
   "keywords": [],
