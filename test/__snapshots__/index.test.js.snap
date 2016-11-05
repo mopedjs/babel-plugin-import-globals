@@ -1,0 +1,65 @@
+exports[`test Does not double import React + JSX 1`] = `
+"
+import React, { Component, PropTypes } from \'react\';
+
+class MyElement extends Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired
+  };
+  render() {
+    return React.createElement(
+      \'div\',
+      null,
+      this.props.name
+    );
+  }
+}"
+`;
+
+exports[`test Imports Promise 1`] = `
+"import _Promise from \"promise\";
+_Promise.resolve(foo).then(console.log);"
+`;
+
+exports[`test Imports React + JSX 1`] = `
+"import { Component as _Component } from \"react\";
+import _React from \"react\";
+import { PropTypes as _PropTypes } from \"react\";
+
+class MyElement extends _Component {
+  static propTypes = {
+    name: _PropTypes.string.isRequired
+  };
+  render() {
+    return _React.createElement(
+      \"div\",
+      null,
+      this.props.name
+    );
+  }
+}"
+`;
+
+exports[`test Imports React 1`] = `
+"import { Component as _Component } from \"react\";
+import { PropTypes as _PropTypes } from \"react\";
+
+class MyElement extends _Component {
+  static propTypes = {
+    name: _PropTypes.string.isRequired
+  };
+  render() {
+    return <div>{this.props.name}</div>;
+  }
+}"
+`;
+
+exports[`test Still imports Promise when we use transform runtime after 1`] = `
+"import _Promise from \"promise\";
+_Promise.resolve(foo).then(console.log);"
+`;
+
+exports[`test Still imports Promise when we use transform runtime first 1`] = `
+"import _Promise from \"promise\";
+_Promise.resolve(foo).then(console.log);"
+`;

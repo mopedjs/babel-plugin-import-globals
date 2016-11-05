@@ -1,0 +1,40 @@
+{
+  "name": "babel-plugin-import-globals",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "description": "Automatically import a whitelist of modules when they are used",
+  "keywords": [],
+  "files": [
+    "lib/"
+  ],
+  "dependencies": {
+    "babel-runtime": "^6.3.19"
+  },
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-plugin-syntax-class-properties": "^6.13.0",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-forbeslindesay": "*",
+    "eslint": "*",
+    "eslint-config-forbeslindesay": "*",
+    "jest": "^16.0.2"
+  },
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "babel src --out-dir lib",
+    "lint": "eslint src",
+    "posttest": "npm run lint",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mopedjs/babel-plugin-import-globals.git"
+  },
+  "author": {
+    "name": "Forbes Lindesay",
+    "url": "http://github.com/ForbesLindesay"
+  },
+  "license": "MIT"
+}
