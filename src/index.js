@@ -1,4 +1,4 @@
-export default ({types: t}) => {
+module.exports = ({types: t}) => {
   return {
     pre(file) {
       const opts = this.opts;
