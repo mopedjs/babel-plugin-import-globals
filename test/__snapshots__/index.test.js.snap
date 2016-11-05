@@ -54,6 +54,51 @@ class MyElement extends _Component {
 }"
 `;
 
+exports[`test JSX Elements 1`] = `
+"import { Match as _Match } from \"react-router\";
+import _React from \"react\";
+
+const element = _React.createElement(
+  \"div\",
+  null,
+  _React.createElement(
+    \"ul\",
+    null,
+    _React.createElement(
+      \"li\",
+      null,
+      _React.createElement(
+        Link,
+        { to: \"/\" },
+        \"Home\"
+      )
+    ),
+    _React.createElement(
+      \"li\",
+      null,
+      _React.createElement(
+        Link,
+        { to: \"/about\" },
+        \"About\"
+      )
+    ),
+    _React.createElement(
+      \"li\",
+      null,
+      _React.createElement(
+        Link,
+        { to: \"/topics\" },
+        \"Topics\"
+      )
+    )
+  ),
+  _React.createElement(\"hr\", null),
+  _React.createElement(_Match, { exactly: true, pattern: \"/\", component: Home }),
+  _React.createElement(_Match, { pattern: \"/about\", component: About }),
+  _React.createElement(_Match, { pattern: \"/topics\", component: Topics })
+);"
+`;
+
 exports[`test Still imports Promise when we use transform runtime after 1`] = `
 "import _Promise from \"promise\";
 _Promise.resolve(foo).then(console.log);"

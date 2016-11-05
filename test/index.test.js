@@ -183,3 +183,41 @@ test('Does not double import React + JSX', () => {
   const {code} = transform(input, opts);
   expect(code).toMatchSnapshot();
 });
+
+test('JSX Elements', () => {
+  const opts = {
+    babelrc: false,
+    plugins: [
+      syntaxClassProperties,
+      transformJsx,
+      [
+        plugin,
+        {
+          React: 'react',
+          Component: {moduleName: 'react', exportName: 'Component'},
+          PropTypes: {moduleName: 'react', exportName: 'PropTypes'},
+          Match: {moduleName: 'react-router', exportName: 'Match'},
+        },
+      ],
+    ],
+  };
+  const input = `
+    const element = (
+      <div>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/topics">Topics</Link></li>
+        </ul>
+
+        <hr/>
+
+        <Match exactly pattern="/" component={Home} />
+        <Match pattern="/about" component={About} />
+        <Match pattern="/topics" component={Topics} />
+      </div>
+    );
+  `;
+  const {code} = transform(input, opts);
+  expect(code).toMatchSnapshot();
+})

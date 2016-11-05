@@ -35,16 +35,24 @@ module.exports = ({types: t}) => {
         if (!(name in opts)) {
           return;
         }
+
         const source = (
           typeof opts[name] === 'string'
           ? {moduleName: opts[name], exportName: 'default'}
           : opts[name]
         );
-        path.replaceWith(state.addImport(
+
+        const newIdentifier = state.addImport(
           source.moduleName,
           source.exportName,
           name
-        ));
+        );
+
+        path.replaceWith(
+          node.type === 'JSXIdentifier'
+          ? t.jSXIdentifier(newIdentifier.name)
+          : newIdentifier
+        );
       },
     },
   };
