@@ -182,8 +182,8 @@ aws4@^1.2.1:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.5.0.tgz#0a29ffb79c31c9e712eeb087e8e7a64b4a56d755"
 
 babel-cli@*:
-  version "6.22.1"
-  resolved "https://registry.yarnpkg.com/babel-cli/-/babel-cli-6.22.1.tgz#de32a6c635f2b3069228aa2238b23c09b926cb88"
+  version "6.22.2"
+  resolved "https://registry.yarnpkg.com/babel-cli/-/babel-cli-6.22.2.tgz#3f814c8acf52759082b8fedd9627f938936ab559"
   dependencies:
     babel-core "^6.22.1"
     babel-polyfill "^6.22.0"
