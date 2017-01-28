@@ -1533,8 +1533,8 @@ iconv-lite@^0.4.13:
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.15.tgz#fe265a218ac6a57cfe854927e9d04c19825eddeb"
 
 ignore@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.2.0.tgz#8d88f03c3002a0ac52114db25d2c673b0bf1e435"
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.2.2.tgz#1c51e1ef53bab6ddc15db4d9ac4ec139eceb3410"
 
 imurmurhash@^0.1.4:
   version "0.1.4"
