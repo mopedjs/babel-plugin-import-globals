@@ -2327,8 +2327,8 @@ node-notifier@^4.6.1:
     which "^1.0.5"
 
 node-pre-gyp@^0.6.29:
-  version "0.6.34"
-  resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.6.34.tgz#94ad1c798a11d7fc67381b50d47f8cc18d9799f7"
+  version "0.6.35"
+  resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.6.35.tgz#1c161fc9fbf1f3ffecd751959f0fdbd12a56c4ab"
   dependencies:
     mkdirp "^0.5.1"
     nopt "^4.0.1"
