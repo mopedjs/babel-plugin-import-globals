@@ -32,7 +32,7 @@ module.exports = ({types: t}) => {
         if (scope.getBindingIdentifier(node.name)) return;
         const opts = this.opts;
         const name = node.name;
-        if (!(name in opts)) {
+        if (!(name in opts) || (typeof opts[name] !== 'string' && typeof opts[name] !== 'object')) {
           return;
         }
 
