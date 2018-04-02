@@ -1,3 +1,5 @@
+import {addDefault, addNamed} from '@babel/helper-module-imports';
+
 module.exports = ({types: t}) => {
   return {
     pre(file) {
@@ -27,7 +29,7 @@ module.exports = ({types: t}) => {
       }
     },
     visitor: {
-      ReferencedIdentifier(path, state) {
+      Program(path) {
         const {node, scope} = path;
         if (scope.getBindingIdentifier(node.name)) return;
         const opts = this.opts;
@@ -42,11 +44,9 @@ module.exports = ({types: t}) => {
             : opts[name]
         );
 
-        const newIdentifier = state.addImport(
-          source.moduleName,
-          source.exportName,
-          name
-        );
+        const newIdentifier = source.exportName === 'default'
+          ? addDefault(path, source.moduleName, {nameHint: name})
+          : addNamed(path, source.exportName, source.moduleName);
 
         path.replaceWith(
           node.type === 'JSXIdentifier'

@@ -1,8 +1,8 @@
 import {transform} from 'babel-core';
-import transformRuntime from 'babel-plugin-transform-runtime';
-import syntaxClassProperties from 'babel-plugin-syntax-class-properties';
-import syntaxJsx from 'babel-plugin-syntax-jsx';
-import transformJsx from 'babel-plugin-transform-react-jsx';
+import transformRuntime from '@babel/plugin-transform-runtime';
+import syntaxClassProperties from '@babel/plugin-syntax-class-properties';
+import syntaxJsx from '@babel/plugin-syntax-jsx';
+import transformJsx from '@babel/plugin-transform-react-jsx';
 import plugin from '../src';
 
 test('Invalid options throws helpful error', () => {

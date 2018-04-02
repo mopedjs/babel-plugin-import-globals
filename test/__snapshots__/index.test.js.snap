@@ -1,110 +1,74 @@
 exports[`test Does not double import React + JSX 1`] = `
-"
-import React, { Component, PropTypes } from \'react\';
+"import React, { Component, PropTypes } from \'react\';
 
 class MyElement extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired
   };
+
   render() {
-    return React.createElement(
-      \'div\',
-      null,
-      this.props.name
-    );
+    return React.createElement(\"div\", null, this.props.name);
   }
+
 }"
 `;
 
-exports[`test Imports Promise 1`] = `
-"import _Promise from \"promise\";
-_Promise.resolve(foo).then(console.log);"
-`;
+exports[`test Imports Promise 1`] = `"Promise.resolve(foo).then(console.log);"`;
 
 exports[`test Imports React + JSX 1`] = `
-"import { Component as _Component } from \"react\";
-import _React from \"react\";
-import { PropTypes as _PropTypes } from \"react\";
-
-class MyElement extends _Component {
+"class MyElement extends Component {
   static propTypes = {
-    name: _PropTypes.string.isRequired
+    name: PropTypes.string.isRequired
   };
+
   render() {
-    return _React.createElement(
-      \"div\",
-      null,
-      this.props.name
-    );
+    return React.createElement(\"div\", null, this.props.name);
   }
+
 }"
 `;
 
 exports[`test Imports React 1`] = `
-"import { Component as _Component } from \"react\";
-import { PropTypes as _PropTypes } from \"react\";
-
-class MyElement extends _Component {
+"class MyElement extends Component {
   static propTypes = {
-    name: _PropTypes.string.isRequired
+    name: PropTypes.string.isRequired
   };
+
   render() {
     return <div>{this.props.name}</div>;
   }
+
 }"
 `;
 
 exports[`test JSX Elements 1`] = `
-"import { Match as _Match } from \"react-router\";
-import _React from \"react\";
-
-const element = _React.createElement(
-  \"div\",
-  null,
-  _React.createElement(
-    \"ul\",
-    null,
-    _React.createElement(
-      \"li\",
-      null,
-      _React.createElement(
-        Link,
-        { to: \"/\" },
-        \"Home\"
-      )
-    ),
-    _React.createElement(
-      \"li\",
-      null,
-      _React.createElement(
-        Link,
-        { to: \"/about\" },
-        \"About\"
-      )
-    ),
-    _React.createElement(
-      \"li\",
-      null,
-      _React.createElement(
-        Link,
-        { to: \"/topics\" },
-        \"Topics\"
-      )
-    )
-  ),
-  _React.createElement(\"hr\", null),
-  _React.createElement(_Match, { exactly: true, pattern: \"/\", component: Home }),
-  _React.createElement(_Match, { pattern: \"/about\", component: About }),
-  _React.createElement(_Match, { pattern: \"/topics\", component: Topics })
-);"
+"const element = React.createElement(\"div\", null, React.createElement(\"ul\", null, React.createElement(\"li\", null, React.createElement(Link, {
+  to: \"/\"
+}, \"Home\")), React.createElement(\"li\", null, React.createElement(Link, {
+  to: \"/about\"
+}, \"About\")), React.createElement(\"li\", null, React.createElement(Link, {
+  to: \"/topics\"
+}, \"Topics\"))), React.createElement(\"hr\", null), React.createElement(Match, {
+  exactly: true,
+  pattern: \"/\",
+  component: Home
+}), React.createElement(Match, {
+  pattern: \"/about\",
+  component: About
+}), React.createElement(Match, {
+  pattern: \"/topics\",
+  component: Topics
+}));"
 `;
 
 exports[`test Still imports Promise when we use transform runtime after 1`] = `
-"import _Promise from \"promise\";
+"var _Promise = require(\"@babel/runtime/core-js/promise\");
+
 _Promise.resolve(foo).then(console.log);"
 `;
 
 exports[`test Still imports Promise when we use transform runtime first 1`] = `
-"import _Promise from \"promise\";
+"var _Promise = require(\"@babel/runtime/core-js/promise\");
+
 _Promise.resolve(foo).then(console.log);"
 `;

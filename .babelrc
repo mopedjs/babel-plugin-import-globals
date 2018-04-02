@@ -1,9 +1,12 @@
 {
   "presets": [
-    ["env", {
-      "targets": {
-        "node": "9.10.0"
+    [
+      "env",
+      {
+        "targets": {
+          "node": "9.10.0"
+        }
       }
-    }]
+    ]
   ]
 }
