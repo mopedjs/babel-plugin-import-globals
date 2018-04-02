@@ -38,8 +38,8 @@ module.exports = ({types: t}) => {
 
         const source = (
           typeof opts[name] === 'string'
-          ? {moduleName: opts[name], exportName: 'default'}
-          : opts[name]
+            ? {moduleName: opts[name], exportName: 'default'}
+            : opts[name]
         );
 
         const newIdentifier = state.addImport(
@@ -50,8 +50,8 @@ module.exports = ({types: t}) => {
 
         path.replaceWith(
           node.type === 'JSXIdentifier'
-          ? t.jSXIdentifier(newIdentifier.name)
-          : newIdentifier
+            ? t.jSXIdentifier(newIdentifier.name)
+            : newIdentifier
         );
       },
     },

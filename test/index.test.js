@@ -5,23 +5,6 @@ import syntaxJsx from 'babel-plugin-syntax-jsx';
 import transformJsx from 'babel-plugin-transform-react-jsx';
 import plugin from '../src';
 
-const opts = {
-  babelrc: false,
-  plugins: [
-    syntaxClassProperties,
-    syntaxJsx,
-    [
-      plugin,
-      {
-        Promise: 'promise',
-        React: 'react',
-        Component: {moduleName: 'react', exportName: 'Component'},
-        PropTypes: {moduleName: 'react', exportName: 'PropTypes'},
-      },
-    ],
-  ],
-};
-
 test('Invalid options throws helpful error', () => {
   // counter example
   const opts = {
@@ -220,4 +203,4 @@ test('JSX Elements', () => {
   `;
   const {code} = transform(input, opts);
   expect(code).toMatchSnapshot();
-})
+});
