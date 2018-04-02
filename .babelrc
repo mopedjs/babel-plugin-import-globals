@@ -1,3 +1,9 @@
 {
-  "presets": ["forbeslindesay"]
+  "presets": [
+    ["env", {
+      "targets": {
+        "node": "9.10.0"
+      }
+    }]
+  ]
 }
