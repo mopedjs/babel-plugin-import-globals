@@ -55,36 +55,23 @@ class MyElement extends _Component {
 `;
 
 exports[`JSX Elements 1`] = `
-"import _React12 from \\"react\\";
-import _React11 from \\"react\\";
-import { Match as _Match3 } from \\"react-router\\";
-import _React10 from \\"react\\";
-import { Match as _Match2 } from \\"react-router\\";
-import _React9 from \\"react\\";
-import { Match as _Match } from \\"react-router\\";
-import _React8 from \\"react\\";
-import _React7 from \\"react\\";
-import _React6 from \\"react\\";
-import _React5 from \\"react\\";
-import _React4 from \\"react\\";
-import _React3 from \\"react\\";
-import _React2 from \\"react\\";
+"import { Match as _Match } from \\"react-router\\";
 import _React from \\"react\\";
 
-const element = _React12.createElement(\\"div\\", null, _React7.createElement(\\"ul\\", null, _React2.createElement(\\"li\\", null, _React.createElement(Link, {
+const element = _React.createElement(\\"div\\", null, _React.createElement(\\"ul\\", null, _React.createElement(\\"li\\", null, _React.createElement(Link, {
   to: \\"/\\"
-}, \\"Home\\")), _React4.createElement(\\"li\\", null, _React3.createElement(Link, {
+}, \\"Home\\")), _React.createElement(\\"li\\", null, _React.createElement(Link, {
   to: \\"/about\\"
-}, \\"About\\")), _React6.createElement(\\"li\\", null, _React5.createElement(Link, {
+}, \\"About\\")), _React.createElement(\\"li\\", null, _React.createElement(Link, {
   to: \\"/topics\\"
-}, \\"Topics\\"))), _React8.createElement(\\"hr\\", null), _React9.createElement(_Match, {
+}, \\"Topics\\"))), _React.createElement(\\"hr\\", null), _React.createElement(_Match, {
   exactly: true,
   pattern: \\"/\\",
   component: Home
-}), _React10.createElement(_Match2, {
+}), _React.createElement(_Match, {
   pattern: \\"/about\\",
   component: About
-}), _React11.createElement(_Match3, {
+}), _React.createElement(_Match, {
   pattern: \\"/topics\\",
   component: Topics
 }));"
