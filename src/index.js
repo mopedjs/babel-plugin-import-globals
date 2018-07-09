@@ -29,7 +29,7 @@ module.exports = ({types: t}) => {
       }
     },
     visitor: {
-      Program(path) {
+      ReferencedIdentifier(path) {
         const {node, scope} = path;
         if (scope.getBindingIdentifier(node.name)) return;
         const opts = this.opts;

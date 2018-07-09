@@ -15,25 +15,36 @@ class MyElement extends Component {
 }"
 `;
 
-exports[`Imports Promise 1`] = `"Promise.resolve(foo).then(console.log);"`;
+exports[`Imports Promise 1`] = `
+"import _Promise from \\"promise\\";
+
+_Promise.resolve(foo).then(console.log);"
+`;
 
 exports[`Imports React + JSX 1`] = `
-"class MyElement extends Component {
+"import { Component as _Component } from \\"react\\";
+import _React from \\"react\\";
+import { PropTypes as _PropTypes } from \\"react\\";
+
+class MyElement extends _Component {
   static propTypes = {
-    name: PropTypes.string.isRequired
+    name: _PropTypes.string.isRequired
   };
 
   render() {
-    return React.createElement(\\"div\\", null, this.props.name);
+    return _React.createElement(\\"div\\", null, this.props.name);
   }
 
 }"
 `;
 
 exports[`Imports React 1`] = `
-"class MyElement extends Component {
+"import { Component as _Component } from \\"react\\";
+import { PropTypes as _PropTypes } from \\"react\\";
+
+class MyElement extends _Component {
   static propTypes = {
-    name: PropTypes.string.isRequired
+    name: _PropTypes.string.isRequired
   };
 
   render() {
@@ -44,33 +55,49 @@ exports[`Imports React 1`] = `
 `;
 
 exports[`JSX Elements 1`] = `
-"const element = React.createElement(\\"div\\", null, React.createElement(\\"ul\\", null, React.createElement(\\"li\\", null, React.createElement(Link, {
+"import _React12 from \\"react\\";
+import _React11 from \\"react\\";
+import { Match as _Match3 } from \\"react-router\\";
+import _React10 from \\"react\\";
+import { Match as _Match2 } from \\"react-router\\";
+import _React9 from \\"react\\";
+import { Match as _Match } from \\"react-router\\";
+import _React8 from \\"react\\";
+import _React7 from \\"react\\";
+import _React6 from \\"react\\";
+import _React5 from \\"react\\";
+import _React4 from \\"react\\";
+import _React3 from \\"react\\";
+import _React2 from \\"react\\";
+import _React from \\"react\\";
+
+const element = _React12.createElement(\\"div\\", null, _React7.createElement(\\"ul\\", null, _React2.createElement(\\"li\\", null, _React.createElement(Link, {
   to: \\"/\\"
-}, \\"Home\\")), React.createElement(\\"li\\", null, React.createElement(Link, {
+}, \\"Home\\")), _React4.createElement(\\"li\\", null, _React3.createElement(Link, {
   to: \\"/about\\"
-}, \\"About\\")), React.createElement(\\"li\\", null, React.createElement(Link, {
+}, \\"About\\")), _React6.createElement(\\"li\\", null, _React5.createElement(Link, {
   to: \\"/topics\\"
-}, \\"Topics\\"))), React.createElement(\\"hr\\", null), React.createElement(Match, {
+}, \\"Topics\\"))), _React8.createElement(\\"hr\\", null), _React9.createElement(_Match, {
   exactly: true,
   pattern: \\"/\\",
   component: Home
-}), React.createElement(Match, {
+}), _React10.createElement(_Match2, {
   pattern: \\"/about\\",
   component: About
-}), React.createElement(Match, {
+}), _React11.createElement(_Match3, {
   pattern: \\"/topics\\",
   component: Topics
 }));"
 `;
 
 exports[`Still imports Promise when we use transform runtime after 1`] = `
-"var _Promise = require(\\"@babel/runtime/core-js/promise\\");
+"import _Promise from \\"promise\\";
 
 _Promise.resolve(foo).then(console.log);"
 `;
 
 exports[`Still imports Promise when we use transform runtime first 1`] = `
-"var _Promise = require(\\"@babel/runtime/core-js/promise\\");
+"import _Promise from \\"promise\\";
 
 _Promise.resolve(foo).then(console.log);"
 `;
