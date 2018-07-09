@@ -1,5 +1,7 @@
-exports[`test Does not double import React + JSX 1`] = `
-"import React, { Component, PropTypes } from \'react\';
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Does not double import React + JSX 1`] = `
+"import React, { Component, PropTypes } from 'react';
 
 class MyElement extends Component {
   static propTypes = {
@@ -7,28 +9,28 @@ class MyElement extends Component {
   };
 
   render() {
-    return React.createElement(\"div\", null, this.props.name);
+    return React.createElement(\\"div\\", null, this.props.name);
   }
 
 }"
 `;
 
-exports[`test Imports Promise 1`] = `"Promise.resolve(foo).then(console.log);"`;
+exports[`Imports Promise 1`] = `"Promise.resolve(foo).then(console.log);"`;
 
-exports[`test Imports React + JSX 1`] = `
+exports[`Imports React + JSX 1`] = `
 "class MyElement extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired
   };
 
   render() {
-    return React.createElement(\"div\", null, this.props.name);
+    return React.createElement(\\"div\\", null, this.props.name);
   }
 
 }"
 `;
 
-exports[`test Imports React 1`] = `
+exports[`Imports React 1`] = `
 "class MyElement extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired
@@ -41,34 +43,34 @@ exports[`test Imports React 1`] = `
 }"
 `;
 
-exports[`test JSX Elements 1`] = `
-"const element = React.createElement(\"div\", null, React.createElement(\"ul\", null, React.createElement(\"li\", null, React.createElement(Link, {
-  to: \"/\"
-}, \"Home\")), React.createElement(\"li\", null, React.createElement(Link, {
-  to: \"/about\"
-}, \"About\")), React.createElement(\"li\", null, React.createElement(Link, {
-  to: \"/topics\"
-}, \"Topics\"))), React.createElement(\"hr\", null), React.createElement(Match, {
+exports[`JSX Elements 1`] = `
+"const element = React.createElement(\\"div\\", null, React.createElement(\\"ul\\", null, React.createElement(\\"li\\", null, React.createElement(Link, {
+  to: \\"/\\"
+}, \\"Home\\")), React.createElement(\\"li\\", null, React.createElement(Link, {
+  to: \\"/about\\"
+}, \\"About\\")), React.createElement(\\"li\\", null, React.createElement(Link, {
+  to: \\"/topics\\"
+}, \\"Topics\\"))), React.createElement(\\"hr\\", null), React.createElement(Match, {
   exactly: true,
-  pattern: \"/\",
+  pattern: \\"/\\",
   component: Home
 }), React.createElement(Match, {
-  pattern: \"/about\",
+  pattern: \\"/about\\",
   component: About
 }), React.createElement(Match, {
-  pattern: \"/topics\",
+  pattern: \\"/topics\\",
   component: Topics
 }));"
 `;
 
-exports[`test Still imports Promise when we use transform runtime after 1`] = `
-"var _Promise = require(\"@babel/runtime/core-js/promise\");
+exports[`Still imports Promise when we use transform runtime after 1`] = `
+"var _Promise = require(\\"@babel/runtime/core-js/promise\\");
 
 _Promise.resolve(foo).then(console.log);"
 `;
 
-exports[`test Still imports Promise when we use transform runtime first 1`] = `
-"var _Promise = require(\"@babel/runtime/core-js/promise\");
+exports[`Still imports Promise when we use transform runtime first 1`] = `
+"var _Promise = require(\\"@babel/runtime/core-js/promise\\");
 
 _Promise.resolve(foo).then(console.log);"
 `;
