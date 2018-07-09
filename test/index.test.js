@@ -204,3 +204,31 @@ test('JSX Elements', () => {
   const {code} = transform(input, opts);
   expect(code).toMatchSnapshot();
 });
+
+test('Handles naming collisions', () => {
+  const opts = {
+    babelrc: false,
+    plugins: [
+      [
+        plugin,
+        {
+          Promise: 'promise',
+        },
+      ],
+    ],
+  };
+  const input = `
+    var _Promise;
+    Promise.resolve(foo).then(console.log);
+    {
+      let _Promise2;
+      Promise.resolve(foo).then(console.log);
+    }
+    function foo() {
+      var _Promise3;
+      Promise.resolve(foo).then(console.log);
+    }
+  `;
+  const {code} = transform(input, opts);
+  expect(code).toMatchSnapshot();
+});

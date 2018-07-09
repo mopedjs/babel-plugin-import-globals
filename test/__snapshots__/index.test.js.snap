@@ -15,6 +15,26 @@ class MyElement extends Component {
 }"
 `;
 
+exports[`Handles naming collisions 1`] = `
+"import _Promise4 from \\"promise\\";
+
+var _Promise;
+
+_Promise4.resolve(foo).then(console.log);
+
+{
+  let _Promise2;
+
+  _Promise4.resolve(foo).then(console.log);
+}
+
+function foo() {
+  var _Promise3;
+
+  _Promise4.resolve(foo).then(console.log);
+}"
+`;
+
 exports[`Imports Promise 1`] = `
 "import _Promise from \\"promise\\";
 
