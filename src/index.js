@@ -40,7 +40,7 @@ module.exports = ({types: t}) => {
 
         let cached = cache.get(key);
         if (cached) {
-          cached = t.cloneNode(cached);
+          cached = t.cloneDeep(cached);
         } else {
           cached = addNamed(file.path, name, source, {nameHint});
           cache.set(key, cached);
