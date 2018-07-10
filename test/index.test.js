@@ -1,4 +1,4 @@
-import {transform} from 'babel-core';
+import {transform} from '@babel/core';
 import transformRuntime from '@babel/plugin-transform-runtime';
 import syntaxClassProperties from '@babel/plugin-syntax-class-properties';
 import syntaxJsx from '@babel/plugin-syntax-jsx';
