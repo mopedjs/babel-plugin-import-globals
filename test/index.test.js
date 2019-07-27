@@ -1,26 +1,9 @@
-import {transform} from 'babel-core';
-import transformRuntime from 'babel-plugin-transform-runtime';
-import syntaxClassProperties from 'babel-plugin-syntax-class-properties';
-import syntaxJsx from 'babel-plugin-syntax-jsx';
-import transformJsx from 'babel-plugin-transform-react-jsx';
+import {transform} from '@babel/core';
+import transformRuntime from '@babel/plugin-transform-runtime';
+import syntaxClassProperties from '@babel/plugin-syntax-class-properties';
+import syntaxJsx from '@babel/plugin-syntax-jsx';
+import transformJsx from '@babel/plugin-transform-react-jsx';
 import plugin from '../src';
-
-const opts = {
-  babelrc: false,
-  plugins: [
-    syntaxClassProperties,
-    syntaxJsx,
-    [
-      plugin,
-      {
-        Promise: 'promise',
-        React: 'react',
-        Component: {moduleName: 'react', exportName: 'Component'},
-        PropTypes: {moduleName: 'react', exportName: 'PropTypes'},
-      },
-    ],
-  ],
-};
 
 test('Invalid options throws helpful error', () => {
   // counter example
@@ -220,4 +203,32 @@ test('JSX Elements', () => {
   `;
   const {code} = transform(input, opts);
   expect(code).toMatchSnapshot();
-})
+});
+
+test('Handles naming collisions', () => {
+  const opts = {
+    babelrc: false,
+    plugins: [
+      [
+        plugin,
+        {
+          Promise: 'promise',
+        },
+      ],
+    ],
+  };
+  const input = `
+    var _Promise;
+    Promise.resolve(foo).then(console.log);
+    {
+      let _Promise2;
+      Promise.resolve(foo).then(console.log);
+    }
+    function foo() {
+      var _Promise3;
+      Promise.resolve(foo).then(console.log);
+    }
+  `;
+  const {code} = transform(input, opts);
+  expect(code).toMatchSnapshot();
+});

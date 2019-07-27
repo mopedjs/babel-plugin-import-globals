@@ -1,3 +1,5 @@
+import {addNamed, isModule} from '@babel/helper-module-imports';
+
 module.exports = ({types: t}) => {
   return {
     pre(file) {
@@ -25,9 +27,29 @@ module.exports = ({types: t}) => {
           'exportName: string}.'
         );
       }
+
+      // Adapted from babel-plugin-transform-runtime
+      // https://github.com/babel/babel/blob/dd6da3b3af7a09833ef5d90079ca833985eed7dc/packages/babel-plugin-transform-runtime/src/index.js#L58
+      const cache = new Map();
+      this.addImport = (source, name, nameHint) => {
+        // If something on the page adds a helper when the file is an ES6
+        // file, we can't reused the cached helper name after things have been
+        // transformed because it has almost certainly been renamed.
+        const cacheKey = isModule(file.path);
+        const key = `${source}:${name}:${nameHint}:${cacheKey || ''}`;
+
+        let cached = cache.get(key);
+        if (cached) {
+          cached = t.cloneDeep(cached);
+        } else {
+          cached = addNamed(file.path, name, source, {nameHint});
+          cache.set(key, cached);
+        }
+        return cached;
+      };
     },
     visitor: {
-      ReferencedIdentifier(path, state) {
+      ReferencedIdentifier(path) {
         const {node, scope} = path;
         if (scope.getBindingIdentifier(node.name)) return;
         const opts = this.opts;
@@ -38,20 +60,16 @@ module.exports = ({types: t}) => {
 
         const source = (
           typeof opts[name] === 'string'
-          ? {moduleName: opts[name], exportName: 'default'}
-          : opts[name]
+            ? {moduleName: opts[name], exportName: 'default'}
+            : opts[name]
         );
 
-        const newIdentifier = state.addImport(
-          source.moduleName,
-          source.exportName,
-          name
-        );
+        const newIdentifier = this.addImport(source.moduleName, source.exportName, name);
 
         path.replaceWith(
           node.type === 'JSXIdentifier'
-          ? t.jSXIdentifier(newIdentifier.name)
-          : newIdentifier
+            ? t.jSXIdentifier(newIdentifier.name)
+            : newIdentifier
         );
       },
     },
