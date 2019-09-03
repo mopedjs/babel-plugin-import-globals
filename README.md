@@ -53,7 +53,7 @@ class MyElement extends Component {
 And this tool will magically add in:
 
 ```js
-import React, {Componet, PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 
 class MyElement extends Component {
   static propTypes = {
