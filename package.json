@@ -23,7 +23,7 @@
     "babel-jest": "^23.2.0",
     "eslint": "*",
     "eslint-config-forbeslindesay": "*",
-    "jest": "^23.3.0"
+    "jest": "^29.3.1"
   },
   "scripts": {
     "prepublish": "npm run build",
