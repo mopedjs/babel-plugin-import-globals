@@ -20,7 +20,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/runtime": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.2.0",
+    "babel-jest": "^29.3.1",
     "eslint": "*",
     "eslint-config-forbeslindesay": "*",
     "jest": "^23.3.0"
